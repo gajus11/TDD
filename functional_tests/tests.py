@@ -6,7 +6,8 @@ import unittest
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('d:/chromedriver.exe')
+        # self.browser = webdriver.Chrome('d:/chromedriver.exe')
+        self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
@@ -63,7 +64,8 @@ class NewVisitorTest(LiveServerTestCase):
         # We use a new browser session to make sure that no information
         # of Edtih's is coming through from cookies etc.
         self.browser.quit()
-        self.browser = webdriver.Chrome('d:/chromedriver.exe')
+        # self.browser = webdriver.Chrome('d:/chromedriver.exe')
+        self.browser = webdriver.Firefox()
 
         # Francis visit the home page. There is no sign of Edith's list
         self.browser.get(self.live_server_url)
