@@ -22,8 +22,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
             super().tearDownClass()
 
     def setUp(self):
-        # self.browser = webdriver.Chrome('d:/chromedriver.exe')
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome('d:/chromedriver.exe')
+        # self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(1)
 
     def tearDown(self):
@@ -125,7 +125,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.assertAlmostEqual(
             inputbox.location['x'] + inputbox.size['width'] / 2,
             512,
-            delta=5
+            delta=10
         )
 
 if __name__ == '__main__':
