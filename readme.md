@@ -21,3 +21,17 @@ Instalacja na mydevil.net.
     git clone https://lgajownik@bitbucket.org/lgajownik/tdd.git public_python
 
 6. Wrzucenie do folderu public_python pliku passenger.wsgi.py
+
+7. Utworznie folderu dla bazy danych: (SQLite)
+    mkdir ../database
+
+8. Stworzenie folderów dla plików statycznych:
+    mkdir python_public/public
+    mkdir python_public/public/static
+    mkdir python_public/public/media
+
+9. Stworzenie bazy danych:
+    python manage.py migrate
+
+10. Zebranie plików statycznych:
+    python manage.py collectstatic
