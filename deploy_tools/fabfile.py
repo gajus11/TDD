@@ -5,11 +5,14 @@ import random
 
 REPO_URL = 'https://lgajownik@bitbucket.org/lgajownik/tdd.git'
 
-def deploy():
+def deploy(domain=None):
+    if not domain:
+        print("Run with domain=...")
+        return
     site_folder = '/home/%s/domains/%s/public_python' % (env.user, env.host)
     source_folder = site_folder
-    virtualenv_folder = '/home/%s/.virtualenvs/%s' % (env.user)
-    _create_directory_structure_if_necessary(site_folder)
+    virtualenv_folder = '/home/%s/.virtualenvs/%s' % (env.user, domain)
+    # _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
     _update_settings(source_folder, env.host)
     _update_virtualenv(source_folder, virtualenv_folder)
@@ -18,7 +21,7 @@ def deploy():
 
 def _create_directory_structure_if_necessary(site_folder):
     for subfolder in ('public', '../database', 'public/static', 'public/media'):
-        run('mkdir -p %s/%s') % (site_folder, subfolder)
+        run('mkdir -p %s/%s' % (site_folder, subfolder))
 
 def _get_latest_source(source_folder):
     if exists(source_folder + '/.git'):
