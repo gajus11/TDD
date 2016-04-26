@@ -23,12 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't079luzj2vsagc!gdr2#wph&95(*j-0eg40hf^08d=a2*224!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
-
-ALLOWED_HOSTS = ['to-do.gajownik.com']
-
 
 # Application definition
 
@@ -81,7 +78,8 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../database/db.sqlite3'),
+        # 'NAME': os.path.join(BASE_DIR, '../database/db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
