@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'lists',
     'accounts',
+    'django-jenkins',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -145,3 +146,10 @@ LOGGING = {
     },
     'root': {'level': 'INFO'},
 }
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.with_coverage',
+    'django_jenkins.tasks.django_tests',
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+)
