@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'lists',
     'accounts',
-    'django-jenkins',
+    'django_jenkins',
 ]
 
 MIDDLEWARE_CLASSES = [
