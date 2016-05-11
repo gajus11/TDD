@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'lists',
+    'accounts',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,4 +124,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(ENV_PATH, '../public/static/')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'superlists', 'static'),
+)
 MEDIA_ROOT = os.path.join(ENV_PATH, '../public/media/')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+    },
+    'root': {'level': 'INFO'},
+}

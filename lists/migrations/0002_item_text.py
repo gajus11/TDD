@@ -7,14 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('lists', '0001_initial'),
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Item',
-            fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
-
-            ],
+        migrations.AddField(
+            model_name='item',
+            name='text',
+            field=models.TextField(default=''),
         ),
     ]
