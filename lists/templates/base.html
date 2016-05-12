@@ -45,19 +45,27 @@
 </div>
 
 <script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="/static/list.js"></script>
 <script src="https://login.persona.org/include.js"></script>
+<script src="/static/list.js"></script>
+<script src="/static/accounts.js"></script>
 <script>
     $(document).ready(function() {
-        var loginLink = document.getElementById('login');
-        if(loginLink){
-            loginLink,onclick = function() { navigator.id.request(); };
-        }
+        Superlists.Accounts.initialize(navigator)
 
-        var logoutLink = document.getElementById('logout');
-        if(logoutLink){
-            logout.onclick = function() { navigator.id.logout(); };
-        }
+        var urls = {
+            login: "{% url 'login' %}",
+            logout: "{% url 'logout' %}",
+        };
+
+        <!--var loginLink = document.getElementById('login');-->
+        <!--if(loginLink){-->
+            <!--loginLink,onclick = function() { navigator.id.request(); };-->
+        <!--}-->
+
+        <!--var logoutLink = document.getElementById('logout');-->
+        <!--if(logoutLink){-->
+            <!--logout.onclick = function() { navigator.id.logout(); };-->
+        <!--}-->
 
         var currentUser = '{{ user.email }}' || null;
         var csrf_token = '{{ csrf_token }}'
