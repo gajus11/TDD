@@ -130,3 +130,20 @@ STATIC_URL = '/static/'
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(ENV_PATH, '../public/static/')
 MEDIA_ROOT = os.path.join(ENV_PATH, '../public/media/')
+
+LOGGING = {
+    'version' : 1,
+    'disable_existiong_loggers' : False,
+    'handlers' : {
+        'console' : {
+            'level' : 'DEBUG',
+            'class' : 'logging.StreamHandler',
+        },
+    },
+    'loggers' : {
+        'django' : {
+            'handlers' : ['console'],
+        },
+    },
+    'root' : { 'level' : 'INFO' },
+}
