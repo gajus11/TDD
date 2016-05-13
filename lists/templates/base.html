@@ -50,39 +50,13 @@
 <script src="/static/accounts.js"></script>
 <script>
     $(document).ready(function() {
-        Superlists.Accounts.initialize(navigator)
-
+        var user = "{{ user.email }}" || null;
+        var token = "{{ csrf_token }}";
         var urls = {
-            login: "{% url 'login' %}",
-            logout: "{% url 'logout' %}",
+            login: "TODO",
+            logout: "TODO",
         };
-
-        <!--var loginLink = document.getElementById('login');-->
-        <!--if(loginLink){-->
-            <!--loginLink,onclick = function() { navigator.id.request(); };-->
-        <!--}-->
-
-        <!--var logoutLink = document.getElementById('logout');-->
-        <!--if(logoutLink){-->
-            <!--logout.onclick = function() { navigator.id.logout(); };-->
-        <!--}-->
-
-        var currentUser = '{{ user.email }}' || null;
-        var csrf_token = '{{ csrf_token }}'
-        console.log(currentUser);
-
-        navigator.id.watch({
-            loggedInUser : currentUser,
-            onlogin: function(assertion){
-                $.post('/accounts/login', {assertion: assertion, csrfmiddlewaretoken: scrf_token})
-                .done(function() { window.location.reaload(); })
-                .fail(function() { navigator.id.logout(); });
-            },
-            onlogout: function() {
-                $.post('/accounts/logout')
-                .always(function() { window.location.reload(); });
-            }
-        });
+        Superlists.Accounts.initialize(navigator, user, token, urls);
     });
 </script>
 </body>
