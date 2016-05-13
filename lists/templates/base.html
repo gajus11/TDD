@@ -19,7 +19,7 @@
             <a class="btn navbar-btn navbar-right" id="id_logout" href="#">Log out</a>
             <span class="navbar-text navbar-right">Logged in as {{ user.email }}</span>
         {% else %}
-            <a class="btn navbar-btn navbar-right" id="id_login" href="#">Sign in</a>
+            <a class="btn navbar-btn navbar-right" id="id_login" href="{% url 'logout' %}">Log out</a>
         {% endif %}
     </nav>
 
