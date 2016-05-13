@@ -35,3 +35,44 @@ Instalacja na mydevil.net.
 
 10. Zebranie plików statycznych:
     python manage.py collectstatic
+
+
+Konfiguracja JENKINS:
+1. Zainstalowac pluginy:
+    - Violation
+    - xvfb
+    - Cobertura
+    - ShiningPanda
+2. Stworzyc Joba -> Free Software
+3. Ustawienia projektu:
+    a) Wpisac odpowiednie zrodlo kodu
+    b) Poll SCM (budowanie raz na godzine)
+        - H * * * *
+    c) Zaznaczyc opcje Start Xvfb before the build...
+    d) W post build dodac akcje:
+        - Publish Cobertura
+         reports/coverage.xml
+        - Publish JUnit
+         reports/junit.xml
+        - Publish Violations
+         pep8: reports/pep8.report
+         pylint: reports/pyflakes.report, reports/pylint.report
+    e) Build Command:
+        pip install -r requirements.txt
+        pip install selenium==2.39
+        pip install pyvirtualdisplay
+        pip install pep8
+        pip install pylint
+        pip install pyflakes
+        python manage.py jenkins
+
+
+
+pip install -r requirements.txt
+pip install selenium==2.39
+pip install pyvirtualdisplay
+pip install pep8
+pip install pylint
+pip install pyflakes
+python manage.py test lists accounts
+python manage.py test functional_tests
