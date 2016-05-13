@@ -76,3 +76,5 @@ tests/.coverage
 build/
 tests/report/
 superlists/secret_key.py
+
+*.orig
