@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'lists',
     'accounts',
+    'functional_tests',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -148,6 +149,17 @@ LOGGING = {
         'django' : {
             'handlers' : ['console'],
         },
+        'accounts' : {
+            'handlers' : ['console'],
+        },
+        'lists' : {
+            'handlers' : ['console'],
+        },
     },
     'root' : { 'level' : 'INFO' },
 }
+
+# This setting is changed by the deploy script
+DOMAIN = "localhost"
+
+ALLOWED_HOSTS = [DOMAIN]
