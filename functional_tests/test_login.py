@@ -10,7 +10,7 @@ class LoginTest(FunctionalTest):
         retries = 60
         while retries > 0:
             for handle in self.browser.window_handles:
-                self.browser.switch_to_window(handle)
+                self.browser.switch_to.window(handle)
                 if text_in_title in self.browser.title:
                     return
             retries -= 1

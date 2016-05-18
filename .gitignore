@@ -76,5 +76,6 @@ tests/.coverage
 build/
 tests/report/
 superlists/secret_key.py
+functional_tests/screendumps
 
 *.orig
